@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>491</width>
-    <height>581</height>
+    <width>441</width>
+    <height>504</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,8 +17,8 @@
    <widget class="QPushButton" name="btnHide">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>490</y>
+      <x>200</x>
+      <y>419</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -27,23 +27,10 @@
      <string>Hide</string>
     </property>
    </widget>
-   <widget class="QLabel" name="lblCaution">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>280</y>
-      <width>281</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Smoking is dangerous to your health ...</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="btnSmoked">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>10</x>
       <y>200</y>
       <width>131</width>
       <height>71</height>
@@ -56,9 +43,9 @@
    <widget class="QProgressBar" name="timeCountProgress">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>330</y>
-      <width>311</width>
+      <x>150</x>
+      <y>240</y>
+      <width>151</width>
       <height>23</height>
      </rect>
     </property>
@@ -72,7 +59,7 @@
    <widget class="QPushButton" name="btnSkipped">
     <property name="geometry">
      <rect>
-      <x>350</x>
+      <x>310</x>
       <y>200</y>
       <width>121</width>
       <height>71</height>
@@ -85,8 +72,8 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>330</x>
-      <y>501</y>
+      <x>300</x>
+      <y>430</y>
       <width>121</width>
       <height>41</height>
      </rect>
@@ -98,8 +85,8 @@
    <widget class="QGroupBox" name="settingCanGroup">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>370</y>
+      <x>20</x>
+      <y>299</y>
       <width>161</width>
       <height>111</height>
      </rect>
@@ -157,9 +144,9 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>130</x>
+      <x>120</x>
       <y>0</y>
-      <width>251</width>
+      <width>211</width>
       <height>191</height>
      </rect>
     </property>
@@ -170,8 +157,8 @@
    <widget class="QGroupBox" name="settingCigGroup">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>380</y>
+      <x>260</x>
+      <y>309</y>
       <width>171</width>
       <height>111</height>
      </rect>
@@ -229,8 +216,8 @@
    <widget class="QPushButton" name="btnViewSetting">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>490</y>
+      <x>110</x>
+      <y>419</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -242,8 +229,8 @@
    <widget class="QPushButton" name="btnViewStats">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>490</y>
+      <x>20</x>
+      <y>419</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -255,8 +242,8 @@
    <widget class="QRadioButton" name="radioCannabis">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>350</y>
+      <x>20</x>
+      <y>279</y>
       <width>121</width>
       <height>21</height>
      </rect>
@@ -268,10 +255,10 @@
    <widget class="QLCDNumber" name="timeLcd">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>280</y>
+      <x>150</x>
+      <y>200</y>
       <width>151</width>
-      <height>41</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="lineWidth">
@@ -281,8 +268,8 @@
    <widget class="QRadioButton" name="radioCigarrete">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>360</y>
+      <x>260</x>
+      <y>279</y>
       <width>101</width>
       <height>21</height>
      </rect>
@@ -297,7 +284,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>491</width>
+     <width>441</width>
      <height>28</height>
     </rect>
    </property>
