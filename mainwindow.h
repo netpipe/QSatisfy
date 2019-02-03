@@ -42,6 +42,12 @@ private slots:
     void showTime();
     void on_actionExit_triggered();
 
+    void on_btnViewSetting_clicked();
+
+    void on_actionSetting_triggered();
+
+    void on_actionstats_triggered();
+
 private:
     Ui::MainWindow *ui;
     QString dataFile = "data.dat";

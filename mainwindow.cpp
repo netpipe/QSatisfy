@@ -230,10 +230,10 @@ void MainWindow::on_btnSkipped_clicked()
 
 }
 
-void MainWindow::on_btnHide_clicked()
-{
-    this->hide();
-}
+//void MainWindow::on_btnHide_clicked()
+//{
+   // this->hide();
+//}
 void MainWindow::iconActivated(QSystemTrayIcon::ActivationReason reason)
 {
     switch (reason)
@@ -336,4 +336,18 @@ void MainWindow::on_actionExit_triggered()
 {
     this->close();
     QApplication::quit();
+}
+
+void MainWindow::on_actionSetting_triggered()
+{
+    this->hide(); // needs this for now
+    settingsWindow = new settings();
+    settingsWindow->show();
+}
+
+void MainWindow::on_actionstats_triggered()
+{
+    statsWindow = new stats();
+    statsWindow->show();
+    this->hide();
 }
