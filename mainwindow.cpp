@@ -9,7 +9,7 @@
 #include <QMenu>
 #include <QSystemTrayIcon>
 #include <QSound>
-QString mediadir = "./media/";
+QString mediadir = "./media/"; //change mediadir2 in main.cpp aswell if needed
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),

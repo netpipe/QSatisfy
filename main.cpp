@@ -1,13 +1,13 @@
 #include "mainwindow.h"
 #include <QApplication>
 
-QString mediadir = "./media/";
+QString mediadir2 = "./media/";
 
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    a.setWindowIcon(QIcon(mediadir + "smoking.png"));
+    a.setWindowIcon(QIcon(mediadir2 + "smoking.png"));
     a.setQuitOnLastWindowClosed(false);
     MainWindow w;
     w.setWindowFlags( Qt::Dialog  | Qt::MSWindowsFixedSizeDialogHint | Qt::WindowStaysOnTopHint);
