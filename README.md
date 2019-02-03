@@ -3,6 +3,8 @@
 ![Screenshot](main.png)
 ![Screenshot](stats.png)
 
+MIT licence
+
 Smoking timer for harm reduction and cost estimation.
 
 has cannabis and cigarette option
