@@ -9,6 +9,8 @@
 #include <QMenu>
 #include <QSystemTrayIcon>
 #include <QSound>
+QString mediadir = "./media/";
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -37,6 +39,7 @@ MainWindow::MainWindow(QWidget *parent) :
        cannabisCount = config["cannabisCount"];
        messageEnable = config["message"];
        soundEnable = config["sound"];
+       backgroundImage = config["backgroundImage"];
 
 
     }
@@ -45,13 +48,44 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->editCostGram->setText(cannabisCost);
     ui->editGramCount->setText(cannabisCount);
 
+   // QPixmap pix("smoking.png");
+      //  ui->label->setPixmap(pix);
+
+      //  QLabel lblImage;
+printf("bg image is %s",backgroundImage);
+
+
+
+        if ( backgroundImage != "")
+        {         ui->label->setPixmap( backgroundImage ); }
+        else { ui->label->setPixmap( QPixmap( mediadir + "smoking.png" ) );  };
+
+        ui->label->setScaledContents( true );
+        ui->label->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
+
+    // trying set background image...
+   //setStyleSheet("MainWindow {background-image:url(:" + backgroundImage + ")}");
+   // this->centralWidget()->setStyleSheet( "background-image:url(\"F:\final my resume\2016-08-10.jpg\"); background-position: center;" );
+
+   // QPixmap bkgnd(backgroundImage);
+   // bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
+ //   QPalette palette;
+//    palette.setBrush(QPalette::Window, bkgnd);
+    //this->centralWidget()->setPalette(palette);
+    //this->centralWidget()->setAutoFillBackground(true);
+    /**/
 
     connect(ui->btnViewStats, SIGNAL(clicked()), this, SLOT(openStatsWindow()));
     connect(ui->btnViewSetting, SIGNAL(clicked()), this, SLOT(openSettingsWindow()));
 
 
+    //ui->btnSmoked->setStyleSheet("background-color: red; border-width: 0px; margin: 4; border-radius: 5px; border-style: outset");
+    //ui->btnSkipped->setStyleSheet("background-color: green; border-width: 0px; margin: 4; border-radius: 5px; border-style: outset");
+
+
+
     QPixmap oPixmap(32,32);
-    oPixmap.load ("smoking.png");
+    oPixmap.load ( mediadir +"smoking.png");
 
     QIcon oIcon( oPixmap );
 
@@ -73,9 +107,10 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->timeCountProgress->setRange(0, int(timerPeriod.toFloat() * 60));
     ui->timeCountProgress->setValue(0);
-    QTimer *timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()), this, SLOT(updateCheck()));
-    timer->start(int(timerPeriod.toFloat() * 60) * 1000); // int(timerPeriod) * 60 * 1000
+
+    //QTimer *timer = new QTimer(this);
+    //connect(timer, SIGNAL(timeout()), this, SLOT(updateCheck()));
+    //timer->start(int(timerPeriod.toFloat() * 60) * 1000); // int(timerPeriod) * 60 * 1000
 
     QTimer *timerClock = new QTimer(this);
     connect(timerClock,SIGNAL(timeout()), this, SLOT(showTime()));
@@ -93,7 +128,9 @@ void MainWindow::updateCheck()
 {
 
     // this->setFocus(); this does not work :-(
-    ui->timeCountProgress->setValue(0);
+
+    //ui->timeCountProgress->setValue(0);
+
     this->show();
     //this->setWindowFlags((windowFlags() & Qt::WindowStaysOnTopHint));
     this->activateWindow();
@@ -102,7 +139,7 @@ void MainWindow::updateCheck()
     if( soundEnable.compare("1") == 0)
     {
 
-        QSound::play("phone.wav");
+        QSound::play( mediadir + "phone.wav");
     }
     if(messageEnable.compare("1") == 0)
     {
@@ -121,6 +158,11 @@ void MainWindow::showTime()
    //qDebug()<<  ui->timeCountProgress->value();
    ui->timeCountProgress->setValue( ui->timeCountProgress->value() + 1);
 
+   if(ui->timeCountProgress->value() == ui->timeCountProgress->maximum())
+   {
+       updateCheck();
+       ui->timeCountProgress->setValue(0);
+   }
 
 }
 
@@ -149,6 +191,7 @@ void MainWindow::on_btnSmoked_clicked()
     out << QString("smoked") + "," + currentDate + "," + QTime::currentTime().toString()+","+type+","+count+","+cost<< endl;
     file.close();
      this->hide();
+    ui->timeCountProgress->setValue(0);
     QMessageBox msgBox;
     msgBox.setText("Smoked!!! OK");
     msgBox.exec();
@@ -159,13 +202,28 @@ void MainWindow::on_btnSkipped_clicked()
 {
 
     QString currentDate = QDate::currentDate().toString("dd,MM,yyyy");
+    QString type = "";
+    QString count = "";
+    QString cost = "";
+    if(ui->radioCigarrete->isChecked())
+    {
+         type = "cigarrete";
+         count = ui->editPackCount->text();
+         cost = ui->editCostPack->text();
+    }
+    else {
+        type = "cannabis";
+        count = ui->editGramCount->text();
+        cost = ui->editCostGram->text();
+    }
 
     QFile file(dataFile);
     file.open(QFile::Append | QFile::Text);
     QTextStream out(&file);   // we will serialize the data into the file
-    out << QString("skipped")  + "," + currentDate + "," + QTime::currentTime().toString()+",,," << endl;
+    out << QString("skipped")  + "," + currentDate + "," + QTime::currentTime().toString()+","+type+","+count+","+cost << endl;
     file.close();
     this->hide();
+    ui->timeCountProgress->setValue(0);
     QMessageBox msgBox;
     msgBox.setText("Skipped!!! Good.");
     msgBox.exec();
@@ -218,4 +276,64 @@ void MainWindow::openSettingsWindow()
     settingsWindow->show();
 
 
+}
+void MainWindow::showEvent( QShowEvent* event ) {
+    QWidget::showEvent( event );
+
+
+    QFile config_file(configFile);
+    if (config_file.open(QIODevice::ReadOnly))
+    {
+       QTextStream in(&config_file);
+       QMap<QString, QString> config;
+       while (!in.atEnd())
+       {
+          QString line = in.readLine();
+          config.insert(line.split(",").takeAt(0) , line.split(",").takeAt(1));
+
+       }
+       config_file.close();
+
+       cigarettesCost = config["cigarettesCost"];
+       cigarettesCount = config["cigarettesCount"];
+
+       if(timerPeriod.compare(config["timer"]) != 0)
+       {
+           ui->timeCountProgress->setRange(0, int(config["timer"].toFloat() * 60));
+           ui->timeCountProgress->setValue(0);
+
+       }
+       timerPeriod = config["timer"];
+       cannabisCost = config["cannabisCost"];
+       cannabisCount = config["cannabisCount"];
+       messageEnable = config["message"];
+       soundEnable = config["sound"];
+
+       if(backgroundImage.compare(config["backgroundImage"]) != 0)
+       {
+           QPixmap bkgnd(config["backgroundImage"]);
+           bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
+           QPalette palette;
+           palette.setBrush(QPalette::Window, bkgnd);
+           this->centralWidget()->setPalette(palette);
+           this->centralWidget()->setAutoFillBackground(true);
+
+       }
+
+       backgroundImage = config["backgroundImage"];
+
+    }
+    ui->editCostPack->setText(cigarettesCost);
+    ui->editPackCount->setText(cigarettesCount);
+    ui->editCostGram->setText(cannabisCost);
+    ui->editGramCount->setText(cannabisCount);
+
+
+
+}
+
+void MainWindow::on_actionExit_triggered()
+{
+    this->close();
+    QApplication::quit();
 }

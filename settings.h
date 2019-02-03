@@ -20,6 +20,8 @@ private slots:
 
     void on_btnSave_clicked();
 
+    void on_btnSelectImage_clicked();
+
 private:
     Ui::settings *ui;
     QString configFile = "config.dat";
@@ -31,6 +33,7 @@ private:
     QString cannabisCount = "5";
     QString messageEnable = "1";
     QString soundEnable = "1";
+    QString backgroundImage = "";
 };
 
 #endif // SETTINGS_H

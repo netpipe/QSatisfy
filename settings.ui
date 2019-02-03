@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>337</width>
-    <height>318</height>
+    <width>388</width>
+    <height>367</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,8 +19,8 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>321</width>
-      <height>301</height>
+      <width>371</width>
+      <height>351</height>
      </rect>
     </property>
     <property name="title">
@@ -29,8 +29,8 @@
     <widget class="QPushButton" name="btnSave">
      <property name="geometry">
       <rect>
-       <x>140</x>
-       <y>270</y>
+       <x>180</x>
+       <y>320</y>
        <width>75</width>
        <height>23</height>
       </rect>
@@ -44,7 +44,7 @@
       <rect>
        <x>20</x>
        <y>40</y>
-       <width>111</width>
+       <width>151</width>
        <height>16</height>
       </rect>
      </property>
@@ -55,7 +55,7 @@
     <widget class="QLineEdit" name="editPackCount">
      <property name="geometry">
       <rect>
-       <x>182</x>
+       <x>230</x>
        <y>40</y>
        <width>111</width>
        <height>20</height>
@@ -65,7 +65,7 @@
     <widget class="QLineEdit" name="editPackCost">
      <property name="geometry">
       <rect>
-       <x>182</x>
+       <x>230</x>
        <y>70</y>
        <width>111</width>
        <height>20</height>
@@ -80,19 +80,19 @@
       <rect>
        <x>20</x>
        <y>70</y>
-       <width>111</width>
+       <width>161</width>
        <height>16</height>
       </rect>
      </property>
      <property name="text">
-      <string>Cost of a pack (USD) :</string>
+      <string>Cost of a pack :</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="editTimerPeriod">
      <property name="geometry">
       <rect>
-       <x>182</x>
-       <y>170</y>
+       <x>230</x>
+       <y>160</y>
        <width>111</width>
        <height>20</height>
       </rect>
@@ -105,8 +105,8 @@
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>170</y>
-       <width>141</width>
+       <y>160</y>
+       <width>211</width>
        <height>16</height>
       </rect>
      </property>
@@ -118,7 +118,7 @@
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>200</y>
+       <y>190</y>
        <width>141</width>
        <height>16</height>
       </rect>
@@ -131,7 +131,7 @@
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>230</y>
+       <y>220</y>
        <width>141</width>
        <height>16</height>
       </rect>
@@ -143,8 +143,8 @@
     <widget class="QPushButton" name="btnCancel">
      <property name="geometry">
       <rect>
-       <x>220</x>
-       <y>270</y>
+       <x>260</x>
+       <y>320</y>
        <width>75</width>
        <height>23</height>
       </rect>
@@ -156,7 +156,7 @@
     <widget class="QLineEdit" name="editGramOnce">
      <property name="geometry">
       <rect>
-       <x>182</x>
+       <x>230</x>
        <y>100</y>
        <width>111</width>
        <height>20</height>
@@ -179,7 +179,7 @@
     <widget class="QLineEdit" name="editCostGram">
      <property name="geometry">
       <rect>
-       <x>182</x>
+       <x>230</x>
        <y>130</y>
        <width>111</width>
        <height>20</height>
@@ -194,19 +194,19 @@
       <rect>
        <x>20</x>
        <y>130</y>
-       <width>151</width>
+       <width>231</width>
        <height>16</height>
       </rect>
      </property>
      <property name="text">
-      <string>Cannabis Cost per gram (USD) :</string>
+      <string>Cannabis Cost per gram :</string>
      </property>
     </widget>
     <widget class="QGroupBox" name="groupSound">
      <property name="geometry">
       <rect>
-       <x>180</x>
-       <y>230</y>
+       <x>230</x>
+       <y>220</y>
        <width>111</width>
        <height>31</height>
       </rect>
@@ -224,7 +224,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>No</string>
+       <string>&amp;No</string>
       </property>
      </widget>
      <widget class="QRadioButton" name="radioSoundY">
@@ -237,15 +237,15 @@
        </rect>
       </property>
       <property name="text">
-       <string>Yes</string>
+       <string>&amp;Yes</string>
       </property>
      </widget>
     </widget>
     <widget class="QGroupBox" name="groupMessage">
      <property name="geometry">
       <rect>
-       <x>179</x>
-       <y>200</y>
+       <x>230</x>
+       <y>190</y>
        <width>111</width>
        <height>31</height>
       </rect>
@@ -276,9 +276,35 @@
        </rect>
       </property>
       <property name="text">
-       <string>Yes</string>
+       <string>&amp;Yes</string>
       </property>
      </widget>
+    </widget>
+    <widget class="QLineEdit" name="editBackgroudImage">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>290</y>
+       <width>321</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnSelectImage">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>260</y>
+       <width>321</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Select Backgoud Image</string>
+     </property>
     </widget>
    </widget>
   </widget>

@@ -21,6 +21,15 @@ stats::stats(QWidget *parent) :
           {
               // day , month , year , time , cig / cann , count , price
               smokeData.append(items);
+              /*
+              if(items.takeAt(4).compare("cigarrete") == 0)
+              {
+                  smokeCanData.append(items);
+              }
+              else{
+                  smokeCigData.append(items);
+              }
+              */
           }
           else{
               skipData.append(items);
@@ -69,12 +78,14 @@ void stats::chartMonthDisplay(QString selectedYear = "")
         ui->comboYear_Month->setCurrentText(selectedYear);
     }
     QMap<QString,double> costData;
+    QMap<QString,double> costCigData;
+    QMap<QString,double> costCanData;
     for (int i = 0 ; i < mapMonth.keys().size();i++)
     {
         costData.insert(mapMonth.keys().at(i),0);
+        costCigData.insert(mapMonth.keys().at(i),0);
+        costCanData.insert(mapMonth.keys().at(i),0);
     }
-
-    QBarSet *cost = new QBarSet("");
 
     for(int i = 0; i < smokeData.size(); i++)
     {
@@ -83,37 +94,64 @@ void stats::chartMonthDisplay(QString selectedYear = "")
             if(smokeData.at(i).at(4).compare("cigarrete") == 0)
             {
                  costData[smokeData.at(i).at(1)] =  costData[smokeData.at(i).at(1)] + smokeData.at(i).at(6).toDouble() / smokeData.at(i).at(5).toDouble();
+                 costCigData[smokeData.at(i).at(1)] =  costCigData[smokeData.at(i).at(1)] +   smokeData.at(i).at(6).toDouble() / smokeData.at(i).at(5).toDouble();
+
             }
             else {
 
                  costData[smokeData.at(i).at(1)] =  costData[smokeData.at(i).at(1)] + smokeData.at(i).at(5).toDouble() * smokeData.at(i).at(6).toDouble();
+                 costCanData[smokeData.at(i).at(1)] = costCanData[smokeData.at(i).at(1)] +  smokeData.at(i).at(5).toDouble() * smokeData.at(i).at(6).toDouble();
             }
 
         }
     }
+
+    QBarSet *cost = new QBarSet("Total Monthly Cost");
     for(QString e : costData.keys())
     {
       *cost << costData.value(e);
     }
+    QBarSet *costCan = new QBarSet("Cannabis Monthly Cost");
+    for(QString e : costCanData.keys())
+    {
+      *costCan << costCanData.value(e);
+    }
+    QBarSet *costCig = new QBarSet("Cigarret Monthly Cost");
+    for(QString e : costCigData.keys())
+    {
+      *costCig << costCigData.value(e);
+    }
 
-    QBarSeries *series = new QBarSeries();
-    series->append(cost);
+    QBarSeries *seriesCig = new QBarSeries();
+    seriesCig->append(costCig);
+    QBarSeries *seriesCan = new QBarSeries();
+    seriesCan->append(costCan);
+    QBarSeries *seriesTotal = new QBarSeries();
+    seriesTotal->append(cost);
+
 
     QChart *chart = new QChart();
-    chart->addSeries(series);
+    chart->addSeries(seriesTotal);
+    chart->addSeries(seriesCig);
+    chart->addSeries(seriesCan);
     chart->setTitle("Stats of month");
     chart->setAnimationOptions(QChart::SeriesAnimations);
 
     QBarCategoryAxis *axisX = new QBarCategoryAxis();
     axisX->append(mapMonth.keys());
     chart->addAxis(axisX, Qt::AlignBottom);
-    series->attachAxis(axisX);
+    seriesTotal->attachAxis(axisX);
+    seriesCan->attachAxis(axisX);
+    seriesCig->attachAxis(axisX);
+
 
     QValueAxis *axisY = new QValueAxis();
     axisY->setTitleText("Cost($)");
     //axisY->setRange(0,15);
     chart->addAxis(axisY, Qt::AlignLeft);
-    series->attachAxis(axisY);
+    seriesTotal->attachAxis(axisY);
+    seriesCan->attachAxis(axisY);
+    seriesCig->attachAxis(axisY);
 
     chart->legend()->setVisible(true);
     chart->legend()->setAlignment(Qt::AlignBottom);
@@ -130,7 +168,7 @@ void stats::chartYearDisplay()
     {
         costData.insert(years.at(i),0);
     }
-    QBarSet *cost = new QBarSet("");
+    QBarSet *cost = new QBarSet("Yearly Cost");
     for(int i = 0; i < smokeData.size(); i++)
     {
          if(smokeData.at(i).at(4).compare("cigarrete") == 0)

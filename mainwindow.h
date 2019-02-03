@@ -14,6 +14,8 @@ class MainWindow;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
+protected:
+    void showEvent(QShowEvent *ev);
 
 public:
     explicit MainWindow(QWidget *parent = 0);
@@ -38,6 +40,8 @@ private slots:
     void openSettingsWindow();
 
     void showTime();
+    void on_actionExit_triggered();
+
 private:
     Ui::MainWindow *ui;
     QString dataFile = "data.dat";
@@ -48,11 +52,11 @@ private:
 
     QString cigarettesCost = "15";
     QString cigarettesCount = "20";
-    QString cannabisCost = "7";
-    QString cannabisCount = "5";
+    QString cannabisCost = "1";
+    QString cannabisCount = "1";
     QString messageEnable = "1";
     QString soundEnable = "1";
-
+    QString backgroundImage = "";
 
 
     QSystemTrayIcon *trayIcon;

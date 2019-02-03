@@ -38,6 +38,8 @@ private:
     Ui::stats *ui;
     QString dataFile = "data.dat";
     QVector<QStringList> smokeData;
+    QVector<QStringList> smokeCanData;
+    QVector<QStringList> smokeCigData;
     QVector<QStringList> skipData;
     QStringList years;
     QMap<QString , QString> mapMonth;

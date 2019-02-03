@@ -3,11 +3,17 @@
 #include <QFile>
 #include <QTextStream>
 #include <QMessageBox>
+#include <QFileDialog>
 settings::settings(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::settings)
 {
     ui->setupUi(this);
+
+
+
+
+
     QFile config_file(configFile);
 
 
@@ -30,15 +36,14 @@ settings::settings(QWidget *parent) :
        cannabisCount = config["cannabisCount"];
        messageEnable = config["message"];
        soundEnable = config["sound"];
-
-
+       backgroundImage = config["backgroundImage"];
     }
     ui->editPackCost->setText(cigarettesCost);
     ui->editPackCount->setText(cigarettesCount);
     ui->editCostGram->setText(cannabisCost);
     ui->editGramOnce->setText(cannabisCount);
     ui->editTimerPeriod->setText(timerPeriod);
-
+    ui->editBackgroudImage->setText(backgroundImage);
     if((soundEnable.compare("1") == 0) == (soundEnable == "1"))
     {
         ui->radioSoundY->setChecked(true);
@@ -57,6 +62,8 @@ settings::settings(QWidget *parent) :
         ui->radioMessageY->setChecked(false);
         ui->radioMessageN->setChecked(true);
     }
+
+
 
        /* */
 }
@@ -84,6 +91,7 @@ void settings::on_btnSave_clicked()
        config["timer"] = ui->editTimerPeriod->text();
        config["cannabisCost"] = ui->editCostGram->text();
        config["cannabisCount"] = ui->editGramOnce->text();
+       config["backgroundImage"] = ui->editBackgroudImage->text();
 
        if(ui->radioSoundY->isChecked())
        {
@@ -111,6 +119,16 @@ void settings::on_btnSave_clicked()
        QMessageBox msgBox;
        msgBox.setText("Saved!");
        msgBox.exec();
+       this->hide();
 
     }
+}
+
+void settings::on_btnSelectImage_clicked()
+{
+    QFileDialog dialog(this);
+    dialog.setNameFilter(tr("Images (*.png *.jpg)"));
+    dialog.setViewMode(QFileDialog::Detail);
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"),"/",tr("Images (*.png *.jpg)"));
+    ui->editBackgroudImage->setText(fileName);
 }
