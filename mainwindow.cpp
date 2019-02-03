@@ -11,6 +11,7 @@
 #include <QSound>
 QString mediadir = "./media/"; //change mediadir2 in main.cpp aswell if needed
 
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)

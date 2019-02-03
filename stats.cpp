@@ -299,6 +299,22 @@ void stats::on_btnReset_clicked()
     //qDebug() << smokeData;
     chartDayDisplay("","");
     chartMonthDisplay("");
+    //data.dat
+
+    QMessageBox::StandardButton reply;
+    reply = QMessageBox::question(this, "Clear Stats", "erase data.dat file ?",
+                                  QMessageBox::Yes|QMessageBox::No);
+    if (reply == QMessageBox::Yes) {
+      qDebug() << "Yes was clicked";
+     // QApplication::quit();
+      QFile file ("data.dat");
+      file.remove();
+    } else {
+   //   qDebug() << "Yes was *not* clicked";
+    }
+
+
+
 
 }
 

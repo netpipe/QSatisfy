@@ -27,8 +27,6 @@ private slots:
 
     void on_btnSkipped_clicked();
 
-    void on_btnHide_clicked();
-
     void updateCheck();
 
     void iconActivated(QSystemTrayIcon::ActivationReason reason);
@@ -41,8 +39,6 @@ private slots:
 
     void showTime();
     void on_actionExit_triggered();
-
-    void on_btnViewSetting_clicked();
 
     void on_actionSetting_triggered();
 

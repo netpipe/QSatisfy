@@ -170,7 +170,7 @@
      <rect>
       <x>660</x>
       <y>310</y>
-      <width>131</width>
+      <width>181</width>
       <height>16</height>
      </rect>
     </property>
@@ -203,7 +203,7 @@
      <rect>
       <x>660</x>
       <y>360</y>
-      <width>131</width>
+      <width>181</width>
       <height>16</height>
      </rect>
     </property>
@@ -231,7 +231,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Savings (USD):</string>
+     <string>Savings :</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="editCostLastYear">
@@ -264,7 +264,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Savings (USD):</string>
+     <string>Savings :</string>
     </property>
    </widget>
    <widget class="QLabel" name="lblCostLastYear">
