@@ -52,7 +52,7 @@ MainWindow::MainWindow(QWidget *parent) :
       //  ui->label->setPixmap(pix);
 
       //  QLabel lblImage;
-printf("bg image is %s",backgroundImage);
+//      printf("bg image is %s",backgroundImage);
 
 
 
@@ -85,7 +85,7 @@ printf("bg image is %s",backgroundImage);
 
 
     QPixmap oPixmap(32,32);
-    oPixmap.load ( mediadir +"smoking.png");
+    oPixmap.load ( mediadir + "smoking.png");
 
     QIcon oIcon( oPixmap );
 
@@ -193,7 +193,7 @@ void MainWindow::on_btnSmoked_clicked()
      this->hide();
     ui->timeCountProgress->setValue(0);
     QMessageBox msgBox;
-    msgBox.setText("Smoked!!! OK");
+    msgBox.setText("Smoked");
     msgBox.exec();
 
 }
@@ -225,7 +225,7 @@ void MainWindow::on_btnSkipped_clicked()
     this->hide();
     ui->timeCountProgress->setValue(0);
     QMessageBox msgBox;
-    msgBox.setText("Skipped!!! Good.");
+    msgBox.setText("Skipped.");
     msgBox.exec();
 
 }
@@ -255,7 +255,7 @@ void MainWindow::iconActivated(QSystemTrayIcon::ActivationReason reason)
 void MainWindow::showMessage()
 {
     QSystemTrayIcon::MessageIcon icon = QSystemTrayIcon::MessageIcon();
-    trayIcon->showMessage(tr("Smoking app"), tr("Will you smoke now..."), icon, 100);
+    trayIcon->showMessage(tr("QSatisfy"), tr("Will you smoke now..."), icon, 100);
 }
 void MainWindow::on_exit()
 {

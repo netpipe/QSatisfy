@@ -6,290 +6,290 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>464</width>
+    <width>491</width>
     <height>581</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Smoking App</string>
+   <string>QSatisfy</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QGroupBox" name="groupBox">
+   <widget class="QPushButton" name="btnHide">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>10</y>
-      <width>451</width>
-      <height>531</height>
+      <x>230</x>
+      <y>490</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Hide</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblCaution">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>280</y>
+      <width>281</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Smoking is dangerous to your health ...</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnSmoked">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>200</y>
+      <width>131</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Smoked</string>
+    </property>
+   </widget>
+   <widget class="QProgressBar" name="timeCountProgress">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>330</y>
+      <width>311</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="value">
+     <number>24</number>
+    </property>
+    <property name="textVisible">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnSkipped">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>200</y>
+      <width>121</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Skipped</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>501</y>
+      <width>121</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>www.netpipe.ca</string>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="settingCanGroup">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>370</y>
+      <width>161</width>
+      <height>111</height>
      </rect>
     </property>
     <property name="title">
-     <string>QSatisfy</string>
+     <string>Cannabis</string>
     </property>
-    <widget class="QGroupBox" name="settingCanGroup">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>370</y>
-       <width>161</width>
-       <height>111</height>
-      </rect>
-     </property>
-     <property name="title">
-      <string>Cannabis</string>
-     </property>
-     <widget class="QLineEdit" name="editGramCount">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>40</y>
-        <width>81</width>
-        <height>20</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="lblCountGram">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>20</y>
-        <width>141</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Grams per serving:</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="lblCostGram">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>60</y>
-        <width>121</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Cost per serving :</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="editCostGram">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>80</y>
-        <width>81</width>
-        <height>20</height>
-       </rect>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QLabel" name="label">
-     <property name="geometry">
-      <rect>
-       <x>100</x>
-       <y>0</y>
-       <width>251</width>
-       <height>191</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>TextLabel</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="btnSkipped">
-     <property name="geometry">
-      <rect>
-       <x>330</x>
-       <y>200</y>
-       <width>121</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Skipped</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="btnViewSetting">
-     <property name="geometry">
-      <rect>
-       <x>120</x>
-       <y>490</y>
-       <width>75</width>
-       <height>23</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Setting</string>
-     </property>
-    </widget>
-    <widget class="QGroupBox" name="settingCigGroup">
-     <property name="geometry">
-      <rect>
-       <x>270</x>
-       <y>380</y>
-       <width>171</width>
-       <height>111</height>
-      </rect>
-     </property>
-     <property name="title">
-      <string>Cigs</string>
-     </property>
-     <widget class="QLineEdit" name="editPackCount">
-      <property name="geometry">
-       <rect>
-        <x>80</x>
-        <y>40</y>
-        <width>81</width>
-        <height>20</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="lblCountPack">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>20</y>
-        <width>151</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Cigarretes in a pack :</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="lblCostPack">
-      <property name="geometry">
-       <rect>
-        <x>8</x>
-        <y>60</y>
-        <width>151</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Cost of a pack :</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="editCostPack">
-      <property name="geometry">
-       <rect>
-        <x>80</x>
-        <y>80</y>
-        <width>81</width>
-        <height>20</height>
-       </rect>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QRadioButton" name="radioCannabis">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>350</y>
-       <width>121</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Ca&amp;nnabis</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="lblCaution">
+    <widget class="QLineEdit" name="editGramCount">
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>280</y>
-       <width>281</width>
-       <height>31</height>
+       <y>40</y>
+       <width>81</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblCountGram">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>141</width>
+       <height>20</height>
       </rect>
      </property>
      <property name="text">
-      <string>Smoking is dangerous to your health ...</string>
+      <string>Grams per serving:</string>
      </property>
     </widget>
-    <widget class="QLCDNumber" name="timeLcd">
+    <widget class="QLabel" name="lblCostGram">
      <property name="geometry">
       <rect>
-       <x>300</x>
-       <y>280</y>
+       <x>10</x>
+       <y>60</y>
+       <width>121</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Cost per serving :</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="editCostGram">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>80</y>
+       <width>81</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>0</y>
+      <width>251</width>
+      <height>191</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="settingCigGroup">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>380</y>
+      <width>171</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Cigs</string>
+    </property>
+    <widget class="QLineEdit" name="editPackCount">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>40</y>
+       <width>81</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblCountPack">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
        <width>151</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="lineWidth">
-      <number>4</number>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="btnSmoked">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>200</y>
-       <width>131</width>
-       <height>71</height>
+       <height>16</height>
       </rect>
      </property>
      <property name="text">
-      <string>Smoked</string>
+      <string>Cigarretes in a pack :</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="btnHide">
+    <widget class="QLabel" name="lblCostPack">
      <property name="geometry">
       <rect>
-       <x>210</x>
-       <y>490</y>
-       <width>75</width>
-       <height>23</height>
+       <x>8</x>
+       <y>60</y>
+       <width>151</width>
+       <height>16</height>
       </rect>
      </property>
      <property name="text">
-      <string>Hide</string>
+      <string>Cost of a pack :</string>
      </property>
     </widget>
-    <widget class="QRadioButton" name="radioCigarrete">
+    <widget class="QLineEdit" name="editCostPack">
      <property name="geometry">
       <rect>
-       <x>270</x>
-       <y>360</y>
-       <width>101</width>
-       <height>21</height>
+       <x>80</x>
+       <y>80</y>
+       <width>81</width>
+       <height>20</height>
       </rect>
      </property>
-     <property name="text">
-      <string>Cigarretes</string>
-     </property>
     </widget>
-    <widget class="QPushButton" name="btnViewStats">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>490</y>
-       <width>75</width>
-       <height>23</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>View Stats</string>
-     </property>
-    </widget>
-    <widget class="QProgressBar" name="timeCountProgress">
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>330</y>
-       <width>311</width>
-       <height>23</height>
-      </rect>
-     </property>
-     <property name="value">
-      <number>24</number>
-     </property>
-     <property name="textVisible">
-      <bool>false</bool>
-     </property>
-    </widget>
+   </widget>
+   <widget class="QPushButton" name="btnViewSetting">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>490</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Setting</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnViewStats">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>490</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>View Stats</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioCannabis">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>350</y>
+      <width>121</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Ca&amp;nnabis</string>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="timeLcd">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>280</y>
+      <width>151</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="lineWidth">
+     <number>4</number>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioCigarrete">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>360</y>
+      <width>101</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Cigarretes</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -297,7 +297,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>464</width>
+     <width>491</width>
      <height>28</height>
     </rect>
    </property>
@@ -306,13 +306,26 @@
      <string>Fi&amp;le</string>
     </property>
     <addaction name="separator"/>
+    <addaction name="actionSetting"/>
+    <addaction name="actionstats"/>
+    <addaction name="separator"/>
     <addaction name="actionExit"/>
    </widget>
    <addaction name="menuFile"/>
   </widget>
   <action name="actionExit">
    <property name="text">
-    <string>Exit</string>
+    <string>&amp;Exit</string>
+   </property>
+  </action>
+  <action name="actionSetting">
+   <property name="text">
+    <string>&amp;Setting</string>
+   </property>
+  </action>
+  <action name="actionstats">
+   <property name="text">
+    <string>Stat&amp;istics</string>
    </property>
   </action>
  </widget>
