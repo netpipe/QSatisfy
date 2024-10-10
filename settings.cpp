@@ -4,6 +4,13 @@
 #include <QTextStream>
 #include <QMessageBox>
 #include <QFileDialog>
+
+#ifdef __APPLE__
+QString mediadir3 = "/Applications/QSatisfy.app/Contents/media/"; //change mediadir2 in main.cpp aswell if needed
+#else
+QString mediadir3 = "./media/"; //change mediadir2 in main.cpp aswell if needed
+#endif
+
 settings::settings(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::settings)
@@ -14,7 +21,7 @@ settings::settings(QWidget *parent) :
 
 
 
-    QFile config_file(configFile);
+    QFile config_file(mediadir3 + configFile);
 
 
     if (config_file.open(QIODevice::ReadOnly))
@@ -80,7 +87,7 @@ void settings::on_btnCancel_clicked()
 
 void settings::on_btnSave_clicked()
 {
-    QFile config_file(configFile);
+    QFile config_file(mediadir3 + configFile);
     if (config_file.open(QFile::WriteOnly | QFile::Text))
     {
        QTextStream out(&config_file);
@@ -113,7 +120,7 @@ void settings::on_btnSave_clicked()
 
        for (it = config.begin(); it != config.end(); ++it) {
           // output += QString("%1 : %2").arg(it.key()).arg(it.value());
-            out << it.key()+","+it.value() << endl;
+           out << it.key()+","+it.value() << endl;
        }
        config_file.close();
        QMessageBox msgBox;

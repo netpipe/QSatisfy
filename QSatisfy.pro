@@ -9,7 +9,7 @@ QT       += charts
 QT += multimedia
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = smoking_app
+TARGET = QSatisfy
 TEMPLATE = app
 
 

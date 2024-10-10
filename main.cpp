@@ -1,7 +1,11 @@
 #include "mainwindow.h"
 #include <QApplication>
 
-QString mediadir2 = "./media/";
+#ifdef __APPLE__
+QString mediadir2 = "/Applications/QSatisfy.app/Contents/media/"; //change mediadir2 in main.cpp aswell if needed
+#else
+QString mediadir2 = "./media/"; //change mediadir2 in main.cpp aswell if needed
+#endif
 
 
 int main(int argc, char *argv[])

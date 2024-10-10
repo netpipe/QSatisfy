@@ -3,13 +3,20 @@
 #include <QtCharts>
 using namespace QtCharts;
 
+#ifdef __APPLE__
+QString mediadir4 = "/Applications/QSatisfy.app/Contents/media/"; //change mediadir2 in main.cpp aswell if needed
+#else
+QString mediadir4 = "./media/"; //change mediadir2 in main.cpp aswell if needed
+#endif
+
+
 stats::stats(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::stats)
 {
     ui->setupUi(this);
 
-    QFile data_file(dataFile);
+    QFile data_file(mediadir4 + dataFile);
     if (data_file.open(QIODevice::ReadOnly))
     {
        QTextStream in(&data_file);
